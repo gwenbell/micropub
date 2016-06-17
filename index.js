@@ -12,19 +12,22 @@ var sbot_cont = function(cb) {
 var list_messages = function() {
     sbot_cont(function(sbot) {
         pull(
-             sbot.createLogStream(),
-             pull.collect(function(err, msgs) {
-                 msgs.map(function(item) {
-                      var cont = item.value.content;
-                      if (cont.type === 'micro') {
-                         console.log(
-                            chalk.bold.cyan(item.value.author) + " | " + (cont.text)
-                         );
-                      }
-                 });
-             })
-       );
-    });
+                sbot.createLogStream(),
+                pull.drain(function(msg) {
+                        var cont = msg.value.content;
+                        if (cont.type === 'micro') {
+                            console.log(
+                                    chalk.bold.blue(msg.value.author + ':')
+                            );
+                            try{
+                                console.log(cont.text);
+                            } catch(e) {
+                                console.log(e);
+                            }
+                        }
+                })
+            );
+        });
 };
 
 list_messages();
