@@ -1,0 +1,16 @@
+{
+  "name": "backchannel",
+  "version": "1.0.0",
+  "description": "Distributed microblogging on Scuttlebot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ev Bogue <ev@evbogue.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "",
+    "pull-stream": "",
+    "ssb-client": ""
+  }
+}
