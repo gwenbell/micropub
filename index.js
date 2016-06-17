@@ -9,25 +9,13 @@ var sbot_cont = function(cb) {
     });
 };
 
-var list_messages = function() {
-    sbot_cont(function(sbot) {
-        pull(
-                sbot.createLogStream(),
-                pull.drain(function(msg) {
-                        var cont = msg.value.content;
-                        if (cont.type === 'micro') {
-                            console.log(
-                                    chalk.bold.blue(msg.value.author + ':')
-                            );
-                            try{
-                                console.log(cont.text);
-                            } catch(e) {
-                                console.log(e);
-                            }
-                        }
-                })
-            );
-        });
-};
+sbot_cont(function(sbot) {
+     pull(
+          sbot.messagesByType({ type: 'micro', live: true }),
+          pull.drain(function (msg) { console.log (
+                  chalk.cyan(msg.value.author) + " | " + msg.value.content.text
+                  ) 
+          })
+     )
+});
 
-list_messages();
