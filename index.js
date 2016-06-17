@@ -1,6 +1,7 @@
 var pull = require('pull-stream')
   , ssbClient = require('ssb-client')
-  , chalk = require('chalk');
+  , chalk = require('chalk')
+  , moment = require('moment')
 
 var sbot = function(cb) {
     ssbClient(function(err, sbot) {
@@ -13,7 +14,8 @@ sbot(function(sbot) {
      pull(
           sbot.messagesByType({ type: 'micro', live: true }),
           pull.drain(function (msg) { console.log (
-                  chalk.cyan(msg.value.author) + " | " + msg.value.content.text
+                  msg.value.content.text + " " + 
+                  chalk.cyan(msg.value.author) + " " + chalk.dim(moment(msg.value.timestamp).fromNow()) 
                   ) 
           })
      )
