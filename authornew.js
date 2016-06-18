@@ -16,10 +16,9 @@ ssbClient(function(err, sbot) {
             pull.drain(function authorname(msg) {
                 if (msg.value.content.name != undefined) {
                     var username = msg.value.content.name;
-                    console.log(username);
+                    // console.log(username);
                     return username;
                 }
-            return authorname;
             })
         )
     }
