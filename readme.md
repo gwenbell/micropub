@@ -22,3 +22,5 @@ A few implementable goals
 - [ ] Post messages
 
 Initially based on @myf's [Patchterm](https://github.com/myf/patchterm).
+
+!(micropub1.jpg)
