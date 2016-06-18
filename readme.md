@@ -23,4 +23,4 @@ A few implementable goals
 
 Initially based on @myf's [Patchterm](https://github.com/myf/patchterm).
 
-![Micropub](micropub1.jpg)
+![Micropub](https://raw.githubusercontent.com/evbogue/micropub/master/micropub1.png)
