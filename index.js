@@ -13,9 +13,14 @@ var sbot = function(cb) {
 sbot(function(sbot) {
      pull(
           sbot.messagesByType({ type: 'micro', live: true }),
-          pull.drain(function (msg) { console.log (
-                  msg.value.content.text + " " + 
-                  chalk.cyan(msg.value.author) + " " + chalk.dim(moment(msg.value.timestamp).fromNow()) 
+          pull.drain(function (msg) {  
+                  var id = msg.value.author;
+                  var time = msg.value.timestamp;
+                  var cont = msg.value.content.text;
+                                     
+                  console.log (
+                  cont + " " + 
+                  chalk.cyan(id) + " " + chalk.dim(moment(time).fromNow()) 
                   ) 
           })
      )
