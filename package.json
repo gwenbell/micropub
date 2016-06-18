@@ -1,5 +1,5 @@
 {
-  "name": "backchannel",
+  "name": "micropub",
   "version": "1.0.0",
   "description": "Distributed microblogging on Scuttlebot",
   "main": "index.js",
