@@ -14,7 +14,7 @@ var sbot = function(cb) {
 ssbClient(function(err, sbot) {
     if (err) throw err;
     pull(
-        sbot.messagesByType({ type: 'micro', live: true }),
+        sbot.messagesByType({ type: process.argv[2] || 'micro', live: true }),
         pull.drain(function(msg) {
             var id = msg.value.author;
             var time = msg.value.timestamp;
