@@ -7,7 +7,15 @@ Make sure you have scuttlebot installed and the server running
 	% sudo npm install -g scuttlebot
 	% sbot server
 
-To publish a micropost, in a different window use the command
+To start Micropub type
+
+	% node index.js
+
+If you want to view a message type other than 'micro' pass the type you want to view as an argument. For example, if you want to see Patchwork-style Sbot posts, try
+
+	% node index.js post
+
+For right now, to publish you'll need to use the sbot interface. In another window, type
 
 	% sbot publish --type micro --text "Hello World"
 
