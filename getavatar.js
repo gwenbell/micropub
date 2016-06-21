@@ -13,6 +13,7 @@ ssbClient(function(err, sbot) {
         sbot.whoami(function (err, me, userid) {
             avatar(sbot, me.id, userid || me.id, function (err, data) {
                    console.log(JSON.stringify(data, null, 2))
+                   return data;
                    sbot.close()
             })
         }),
