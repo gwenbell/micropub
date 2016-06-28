@@ -7,9 +7,19 @@ Make sure you have scuttlebot installed and the server running
 	% sudo npm install -g scuttlebot
 	% sbot server
 
-To start Micropub type
+To start Micropub, first clone it down.
+
+	% git clone git@github.com:evbogue/micropub.git 
+	
+Next install the modules
+
+	% npm install
+
+And run Micropub with:
 
 	% node index.js
+
+You should see a list of micro messages.
 
 If you want to view a message type other than 'micro' pass the type you want to view as an argument. For example, if you want to see Patchwork-style Sbot posts, try
 
