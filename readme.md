@@ -1,5 +1,7 @@
 # Micropub
 
+![Micropub](https://raw.githubusercontent.com/evbogue/micropub/master/micropub1.png)
+
 The goal of Micropub is to view a "micro" message type on the Scuttlebot distributed database.
 
 Make sure you have scuttlebot installed and the server running
@@ -41,4 +43,3 @@ A few implementable goals
 
 Initially based on @myf's [Patchterm](https://github.com/myf/patchterm).
 
-![Micropub](https://raw.githubusercontent.com/evbogue/micropub/master/micropub1.png)
