@@ -13,15 +13,15 @@ var listMessages = function() {
                 type: process.argv[2] || 'micro',
                 live: true
             }), 
-            paramap(function(err, msg, avatar) {
+            paramap(function(msg, cb) {
                 avatar(sbot, me.id, msg.value.author, function (err, avatar) {
                     msg.avatar = avatar;
                     cb(null, msg);
                })
             }),
-            pull.drain(function(err, msg) {
+            pull.drain(function(msg) {
                 console.log(
-                    chalk.cyan(msg.value.author) + 
+                    chalk.cyan(msg.avatar.name) + 
                     " " + 
                     msg.value.content.text +
                     " " + 
