@@ -13,22 +13,19 @@ var listMessages = function() {
                 type: process.argv[2] || 'micro',
                 live: true
             }), 
-            paramap(function (sbot, msg, cb) {
+            paramap(function(err, msg, avatar) {
                 avatar(sbot, me.id, msg.value.author, function (err, avatar) {
                     msg.avatar = avatar;
                     cb(null, msg);
-                });
+               })
             }),
-            pull.drain(function(msg) {
-                var userid = msg.value.author;
-                var time = msg.value.timestamp;
-                var cont = msg.value.content.text;
+            pull.drain(function(err, msg) {
                 console.log(
-                    chalk.cyan(avatar(msg.value.author)) + 
+                    chalk.cyan(msg.value.author) + 
                     " " + 
-                    cont +
+                    msg.value.content.text +
                     " " + 
-                    chalk.dim(moment(time).fromNow())
+                    chalk.dim(moment(msg.value.timestamp).fromNow())
                 );
             }));
         });
